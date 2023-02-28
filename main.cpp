@@ -1,16 +1,7 @@
-#include "Source/Parser.hpp"
-#include "Source/Query.hpp"
 #include "Source/TSLanguages.hpp"
 #include "Source/Treesitter.hpp"
-
-#include <tree_sitter/api.h>
-
 #include <fstream>
 #include <iostream>
-
-extern "C" {
-TSLanguage *tree_sitter_cpp();
-}
 
 using namespace std;
 
