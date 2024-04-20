@@ -1,6 +1,6 @@
-#include "Query.hpp"
+#include <cpp-treesitter/Query.hpp>
 
-#include "tree_sitter/api.h"
+#include <tree_sitter/api.h>
 
 using namespace std;
 using namespace TS;

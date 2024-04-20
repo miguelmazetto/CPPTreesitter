@@ -24,24 +24,24 @@ public:
 
 	Node GetParentNode();
 
-	int GetChildCount();
-	Node GetChild(int ID);
+	uint32_t GetChildCount();
+	Node GetChild(uint32_t ID);
 	Node GetNextSibling();
 	Node GetPreviousSibling();
 
-	int GetNamedChildCount();
-	Node GetNamedChild(int ID);
+	uint32_t GetNamedChildCount();
+	Node GetNamedChild(uint32_t ID);
 	Node GetNextNamedSibling();
 	Node GetPreviousNamedSibling();
 
-	Node GetChildByFieldID(int FieldID);
+	Node GetChildByFieldID(TSFieldId FieldID);
 	Node GetChildByFieldName(std::string FieldName);
 	// Returns empty string, if no field is found.
-	std::string GetFieldNameForChild(int ID);
+	std::string GetFieldNameForChild(uint32_t ID);
 
 	// Node type name (Example: parameter_list, primitive_type, function_declarator)
 	std::string GetTypeName();
-	int GetSymbolID();
+	TSSymbol GetSymbolID();
 	bool isNull();
 	bool isNamed();
 
@@ -103,7 +103,7 @@ public:
 
 	Node GetCurrentNode();
 	std::string GetCurrentFieldName();
-	int GetCurrentFieldID();
+	TSFieldId GetCurrentFieldID();
 	void Reset(Node NewNode);
 };
 }	 // namespace TS

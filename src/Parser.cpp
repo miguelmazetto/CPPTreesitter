@@ -1,6 +1,6 @@
-#include "Parser.hpp"
+#include <cpp-treesitter/Parser.hpp>
 
-#include "Language.hpp"
+#include <cpp-treesitter/Language.hpp>
 
 #include <tree_sitter/api.h>
 

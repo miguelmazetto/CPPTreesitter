@@ -1,4 +1,4 @@
-#include "Tree.hpp"
+#include <cpp-treesitter/Tree.hpp>
 
 #include <tree_sitter/api.h>
 

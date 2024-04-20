@@ -1,4 +1,4 @@
-#include "Node.hpp"
+#include <cpp-treesitter/Node.hpp>
 
 #include <tree_sitter/api.h>
 
@@ -14,7 +14,7 @@ string Node::GetTypeName()
 	return string(ts_node_type(node));
 }
 
-int Node::GetSymbolID()
+TSSymbol Node::GetSymbolID()
 {
 	return ts_node_symbol(node);
 }
@@ -76,11 +76,11 @@ Node Node::GetParentNode()
 {
 	return Node(ts_node_parent(node));
 }
-int Node::GetChildCount()
+uint32_t Node::GetChildCount()
 {
 	return ts_node_child_count(node);
 }
-Node Node::GetChild(int ID)
+Node Node::GetChild(uint32_t ID)
 {
 	return Node(ts_node_child(node, ID));
 }
@@ -94,11 +94,11 @@ Node Node::GetPreviousSibling()
 }
 
 // Named
-int Node::GetNamedChildCount()
+uint32_t Node::GetNamedChildCount()
 {
 	return ts_node_named_child_count(node);
 }
-Node Node::GetNamedChild(int ID)
+Node Node::GetNamedChild(uint32_t ID)
 {
 	return Node(ts_node_named_child(node, ID));
 }
@@ -111,7 +111,7 @@ Node Node::GetPreviousNamedSibling()
 	return Node(ts_node_prev_named_sibling(node));
 }
 
-Node Node::GetChildByFieldID(int FieldID)
+Node Node::GetChildByFieldID(TSFieldId FieldID)
 {
 	return Node(ts_node_child_by_field_id(node, FieldID));
 }
@@ -120,7 +120,7 @@ Node Node::GetChildByFieldName(string FieldName)
 	return Node(ts_node_child_by_field_name(node, FieldName.data(), FieldName.size()));
 }
 
-string Node::GetFieldNameForChild(int ID)
+string Node::GetFieldNameForChild(uint32_t ID)
 {
 	auto name = ts_node_field_name_for_child(node, ID);
 	return name ? name : string();
@@ -165,7 +165,7 @@ string NodeCursor::GetCurrentFieldName()
 {
 	return ts_tree_cursor_current_field_name(&pCursor);
 }
-int NodeCursor::GetCurrentFieldID()
+TSFieldId NodeCursor::GetCurrentFieldID()
 {
 	return ts_tree_cursor_current_field_id(&pCursor);
 }

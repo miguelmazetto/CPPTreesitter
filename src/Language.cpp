@@ -1,4 +1,4 @@
-#include "Language.hpp"
+#include <cpp-treesitter/Language.hpp>
 
 #include <tree_sitter/api.h>
 
@@ -9,40 +9,40 @@ Language::Language(const TSLanguage* Language) : pLanguage(Language)
 {
 }
 
-int Language::GetFieldCount()
+uint32_t Language::GetFieldCount()
 {
 	return ts_language_field_count(pLanguage);
 }
-string Language::GetFieldName(int ID)
+string Language::GetFieldName(TSFieldId ID)
 {
 	return ts_language_field_name_for_id(pLanguage, ID);
 }
-int Language::GetFieldID(string Name)
+TSFieldId Language::GetFieldID(string Name)
 {
 	return ts_language_field_id_for_name(pLanguage, Name.data(), Name.size());
 }
 
-int Language::GetSymbolCount()
+uint32_t Language::GetSymbolCount()
 {
 	return ts_language_symbol_count(pLanguage);
 }
 
-int Language::GetSymbolID(string SymbolName, bool isNamed)
+TSSymbol Language::GetSymbolID(string SymbolName, bool isNamed)
 {
 	return ts_language_symbol_for_name(pLanguage, SymbolName.data(), SymbolName.size(), isNamed);
 }
 
-string Language::GetSymbolName(int SymbolID)
+string Language::GetSymbolName(TSSymbol SymbolID)
 {
 	return ts_language_symbol_name(pLanguage, SymbolID);
 }
 
-SymbolType Language::GetSymbolType(int SymbolID)
+SymbolType Language::GetSymbolType(TSSymbol SymbolID)
 {
 	return static_cast<SymbolType>(ts_language_symbol_type(pLanguage, SymbolID));
 }
 
-int Language::GetLanguageVersion()
+uint32_t Language::GetLanguageVersion()
 {
 	return ts_language_version(pLanguage);
 }
