@@ -9,6 +9,7 @@ namespace TS
 {
 class Language
 {
+protected:
 	friend class Parser;
 	friend class Query;
 	const TSLanguage* pLanguage;

@@ -8,6 +8,7 @@ namespace TS
 {
 class Tree
 {
+protected:
 	friend class Parser;
 	TSTree* pTree;
 

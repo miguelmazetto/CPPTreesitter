@@ -10,6 +10,7 @@ namespace TS
 {
 class Parser
 {
+protected:
 	TSParser* pParser;
 
 public:

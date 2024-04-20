@@ -34,6 +34,7 @@ public:
 
 class Query
 {
+protected:
 	TSQuery* pQuery;
 	uint32_t ErrorOffset;
 	TSQueryError QueryError;

@@ -9,6 +9,7 @@ namespace TS
 {
 class Node
 {
+protected:
 	friend class Query;
 	friend class Tree;
 	friend class NodeCursor;
